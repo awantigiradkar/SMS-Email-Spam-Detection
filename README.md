@@ -1,5 +1,7 @@
 # SMS/Email Spam Detection App
 
+**Live Demo**: [Click here to try the app!](https://smsemailspamdetection.streamlit.app/)
+
 This is a web application that classifies SMS and Email messages as **Spam** or **Not Spam** using **Natural Language Processing (NLP)** and a **Multinomial Naive Bayes** machine learning model. The app is built using **Python** and **Streamlit**, and also supports **batch message classification** from `.txt`, `.pdf`, or `.docx` files.
 
 ---
@@ -50,7 +52,7 @@ To develop a user-friendly, interactive spam classification app that:
 
 ## How the Model Works
 
-1. **Dataset Used**: [UCI SMS Spam Collection](https://archive.ics.uci.edu/ml/datasets/sms+spam+collection)
+1. **Dataset Used**: [SMS Spam Collection](spam.csv)
    - ~5,500 labeled SMS messages (`spam` or `not spam`)
 2. **Preprocessing**:
    - Lowercasing, tokenization (`nltk.word_tokenize`)
@@ -66,3 +68,39 @@ To develop a user-friendly, interactive spam classification app that:
    - Shows label (`Spam` / `Not Spam`) and prediction confidence
 
 ---
+
+## How to Run Locally
+
+1.Clone the Repository
+```bash
+git clone https://github.com/awantigiradkar/SMS-Email-Spam-Detection.git
+cd SMS-Email-Spam-Detection
+```
+2. Create Virtual Environment (Optional but Recommended)
+```bash
+python -m venv venv
+venv\Scripts\activate   # For Windows
+# or
+source venv/bin/activate   # For Mac/Linux
+```
+3. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+4. Run the Streamlit App
+```bash
+streamlit run app.py
+```
+
+📄 License
+This project is licensed under the MIT License.
+
+💬 Feedback
+If you like this project, consider ⭐ starring the repo.
+Have suggestions or found bugs? Open an issue or contribute via pull request!
+
+
+
+
+
+
