@@ -5,10 +5,12 @@ import pandas as pd
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
+from nltk.tokenize import RegexpTokenizer
 from PyPDF2 import PdfReader
 import docx
 
 ps = PorterStemmer()
+tokenizer = RegexpTokenizer(r'\w+')
 
 nltk.download('punkt')
 nltk.download('stopwords')
@@ -17,11 +19,11 @@ nltk.download('wordnet')
 # Function to transform text
 def transform_text(text):
     text = text.lower()
-    text = nltk.word_tokenize(text)
-    y = [i for i in text if i.isalnum()]
-    y = [i for i in y if i not in stopwords.words('english') and i not in string.punctuation]
-    y = [ps.stem(i) for i in y]
-    return " ".join(y)
+    text = tokenizer.tokenize(text)
+    text = [word for word in text if word.isalnum()]
+    text = [word for word in text if word not in stopwords.words('english')]
+    text = [ps.stem(word) for word in text]
+    return " ".join(text)
 
 # Load model and vectorizer
 tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
