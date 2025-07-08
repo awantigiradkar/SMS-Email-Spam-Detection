@@ -11,7 +11,9 @@ import docx
 ps = PorterStemmer()
 
 nltk.download('punkt')
-    
+nltk.download('stopwords')
+nltk.download('wordnet')
+
 # Function to transform text
 def transform_text(text):
     text = text.lower()
