@@ -10,6 +10,11 @@ import docx
 
 ps = PorterStemmer()
 
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+    
 # Function to transform text
 def transform_text(text):
     text = text.lower()
